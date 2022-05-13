@@ -74,5 +74,5 @@ RUN set -o errexit -o nounset \
 FROM openjdk:11
 COPY . /usr/src/hola-mundo
 WORKDIR /usr/src/hola-mundo
-RUN javac Main.java
+RUN javac HolaMundoApplication.java
 CMD ["java", "HolaMundoApplication"]
