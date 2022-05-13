@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gke-hello-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gke-hello-app
+  template:
+    metadata:
+      labels:
+        app: gke-hello-app
+    spec:
+      containers:
+      - image: erapalo/hello-world-java:0.1
+        name: gke-hello-app
+        ports:
+        - containerPort: 8080
+          name: gke-hello-app 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: appservice
+spec:
+  type: LoadBalancer
+  selector:
+    app: gke-hello-app
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  
