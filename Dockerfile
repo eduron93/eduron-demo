@@ -75,4 +75,4 @@ FROM openjdk:11
 COPY . /usr/src/hola-mundo
 WORKDIR /usr/src/hola-mundo
 RUN javac Main.java
-CMD ["java", "Main"]
+CMD ["java", "HolaMundoApplication"]
